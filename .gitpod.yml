@@ -2,7 +2,11 @@ image: gitpod/workspace-bun
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-  - init: bun install # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+  - env:
+      KEYSTATIC: true
+    init: | # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+      bun upgrade
+      bun install
     command: bun run dev
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
