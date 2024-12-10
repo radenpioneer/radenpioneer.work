@@ -1,5 +1,9 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 
+export interface Props extends Omit<HTMLAttributes<'body'>, 'title'> {}
+
+const {class: className, ...props} = Astro.props
 ---
 
 <html lang="en">
@@ -9,7 +13,7 @@
 		<meta name="generator" content={Astro.generator} />
 		<slot name="head" />
 	</head>
-	<body>
+	<body class={className} {...props}>
 		<slot />
 	</body>
 </html>

@@ -1,14 +1,19 @@
 ---
-interface Props {
+import { getEntry } from 'astro:content'
+
+export interface Props {
     title?: string | undefined
     description?: string | undefined
 }
+
+const { title, description } = Astro.props
+const site = await getEntry('site', 'site')
 ---
 
 {/* mandatories */}
-<title></title>
-<meta name="description" content="">
+<title>{title ? `${title} \u2014 ${site?.data.title}` : site?.data.title}</title>
+<meta name="description" content={description || site?.data.description}>
 <link rel="canonical" href={Astro.url}>
 
 {/* icons */}
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={site?.data.favicon} />

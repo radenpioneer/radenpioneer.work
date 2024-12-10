@@ -30,6 +30,22 @@ export default config({
                         }
                     },
                     multiline: true
+                }),
+                logo: fields.image({
+                    label: 'Logo',
+                    directory: 'src/assets/site',
+                    publicPath: '~/assets/site',
+                    validation: {
+                        isRequired: true
+                    }
+                }),
+                favicon: fields.image({
+                    label: 'Favicon',
+                    directory: 'public',
+                    publicPath: '',
+                    validation: {
+                        isRequired: true
+                    }
                 })
             }
         })
