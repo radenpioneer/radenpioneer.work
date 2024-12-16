@@ -4,7 +4,8 @@ image: gitpod/workspace-bun
 tasks:
   - env:
       KEYSTATIC: true
-    init: | # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+    init:
+      | # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
       bun upgrade
       bun install --frozen-lockfile
     command: bun run dev

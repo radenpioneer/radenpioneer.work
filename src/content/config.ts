@@ -1,5 +1,5 @@
-import site from "./site";
+import site from './site'
 
 export const collections = {
-    site
+  site
 }

@@ -3,17 +3,17 @@ import type { HTMLAttributes } from 'astro/types'
 
 export interface Props extends Omit<HTMLAttributes<'body'>, 'title'> {}
 
-const {class: className, ...props} = Astro.props
+const { class: className, ...props } = Astro.props
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<slot name="head" />
-	</head>
-	<body class={className} {...props}>
-		<slot />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <slot name='head' />
+  </head>
+  <body class={className} {...props}>
+    <slot />
+  </body>
 </html>

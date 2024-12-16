@@ -5,9 +5,10 @@
   "scripts": {
     "astro": "astro",
     "build": "conc bun:check && astro build",
-    "check": "conc \"astro check\"",
+    "check": "conc \"astro check\" \"prettier --check .\"",
     "deploy": "conc bun:build && wrangler pages deploy",
     "dev": "astro dev",
+    "format": "prettier --write .",
     "preview": "conc bun:build && wrangler pages dev"
   },
   "dependencies": {
@@ -25,6 +26,10 @@
     "@types/react": "^18.3.14",
     "@types/react-dom": "^18.3.3",
     "concurrently": "^9.1.0",
+    "prettier": "^3.4.2",
+    "prettier-config-standard": "^7.0.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
     "wrangler": "^3.93.0"
   }
