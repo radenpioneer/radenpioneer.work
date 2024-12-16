@@ -16,5 +16,8 @@ export default defineConfig({
   integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
     plugins: [tailwindcss()]
+  },
+  experimental: {
+    responsiveImages: true
   }
 })

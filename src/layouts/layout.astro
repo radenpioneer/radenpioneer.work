@@ -1,6 +1,7 @@
 ---
 import BaseLayout, { type Props as BaseProps } from './base.astro'
-import Meta, { type Props as MetaProps } from './meta.astro'
+import Meta, { type Props as MetaProps } from '~/components/core/meta.astro'
+import Header from '~/components/header/header.astro'
 import './main.css'
 
 export interface Props extends BaseProps, MetaProps {}
@@ -13,6 +14,7 @@ const { title, description, class: className, ...props } = Astro.props
   {...props}
 >
   {/* <body /> */}
+  <Header />
   <slot />
 
   {/* <head /> */}
