@@ -8,7 +8,10 @@ export interface Props extends BaseProps, MetaProps {}
 const { title, description, class: className, ...props } = Astro.props
 ---
 
-<BaseLayout class:list={['min-h-screen flex flex-col *:w-full', className]} {...props}>
+<BaseLayout
+  class:list={['flex min-h-screen flex-col *:w-full', className]}
+  {...props}
+>
   {/* <body /> */}
   <slot />
 
