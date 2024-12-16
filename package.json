@@ -16,9 +16,11 @@
     "@astrojs/react": "^4.0.0",
     "@keystatic/astro": "^5.0.3",
     "@keystatic/core": "^0.5.42",
+    "@tailwindcss/vite": "^4.0.0-beta.7",
     "astro": "5.0.4",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "tailwindcss": "^4.0.0-beta.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

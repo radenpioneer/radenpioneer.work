@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config'
 import cloudflare from '@astrojs/cloudflare'
 import react from '@astrojs/react'
 import keystatic from '@keystatic/astro'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +13,8 @@ export default defineConfig({
       enabled: true
     }
   }),
-  integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])]
+  integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
+  vite: {
+    plugins: [tailwindcss()]
+  }
 })
