@@ -48,6 +48,50 @@ export default config({
           }
         })
       }
+    }),
+
+    bio: singleton({
+      label: 'Bio',
+      path: 'src/data/bio/bio',
+      format: 'json',
+      schema: {
+        name: fields.text({
+          label: 'Name',
+          validation: {
+            isRequired: true,
+            length: {
+              max: 64
+            }
+          }
+        }),
+        title: fields.text({
+          label: 'Job Title',
+          validation: {
+            isRequired: true,
+            length: {
+              max: 64
+            }
+          }
+        }),
+        description: fields.text({
+          label: 'Job Description',
+          validation: {
+            isRequired: true,
+            length: {
+              max: 160
+            }
+          },
+          multiline: true
+        }),
+        image: fields.image({
+          label: 'Profile Image',
+          directory: 'src/assets/bio',
+          publicPath: '~/assets/bio',
+          validation: {
+            isRequired: true
+          }
+        })
+      }
     })
   }
 })

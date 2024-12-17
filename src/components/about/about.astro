@@ -1,0 +1,16 @@
+---
+import AboutComponent from './about'
+import { getEntry } from 'astro:content'
+import { marked } from 'marked'
+
+// const bio = await getEntry('bio', 'bio')
+const about = await getEntry('about', 'README.md')
+const aboutText = await marked.parse(about?.data.text!)
+---
+
+<section
+  class='mx-auto grid min-h-[calc(100svh-64px)] max-w-screen-lg grid-cols-1 items-center sm:grid-cols-3'
+>
+  <div></div>
+  <AboutComponent text={aboutText} />
+</section>

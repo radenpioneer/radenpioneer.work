@@ -1,54 +1,16 @@
 import { defineCollection } from 'astro:content'
+import { glob } from 'astro/loaders'
 import { z } from 'astro:schema'
 
-const gql = String.raw
 const bio = defineCollection({
-  loader: async () => {
-    const res = await fetch('https://api.github.com/graphql', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${import.meta.env.GH_API_TOKEN}`
-      },
-      body: JSON.stringify({
-        query: gql`
-          query GetBio($id: String!) {
-            repository(name: $id, owner: $id) {
-              object(expression: "HEAD:") {
-                ... on Tree {
-                  entries {
-                    name
-                    object {
-                      ... on Blob {
-                        text
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          id: 'radenpioneer'
-        }
-      })
+  loader: glob({ pattern: '**/*.json', base: 'src/data/bio' }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string().max(64),
+      title: z.string().max(64),
+      description: z.string().max(160),
+      image: image()
     })
-
-    const json = (await res.json()) as any
-    return (
-      json.data.repository.object.entries as Array<{
-        name: string
-        object: { text: string }
-      }>
-    ).map((entry) => ({
-      id: entry.name,
-      text: entry.object.text
-    }))
-  },
-  schema: z.object({
-    id: z.string(),
-    text: z.string()
-  })
 })
 
 export default bio

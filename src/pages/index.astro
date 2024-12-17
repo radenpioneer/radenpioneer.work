@@ -1,15 +1,11 @@
 ---
 import Layout from '~/layouts/layout.astro'
 import Main from '~/components/core/main.astro'
-import { getEntry } from 'astro:content'
-
-const bio = await getEntry('bio', 'README.md')
+import About from '~/components/about/about.astro'
 ---
 
 <Layout>
   <Main class='flex flex-col items-center justify-center'>
-    <h1 class='text-4xl font-extrabold'>radenpioneer.work</h1>
-    <p class='text-xl font-bold'>Under Construction</p>
-    <pre>{JSON.stringify(bio)}</pre>
+    <About />
   </Main>
 </Layout>
