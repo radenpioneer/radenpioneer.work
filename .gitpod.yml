@@ -24,3 +24,4 @@ vscode:
     - GitHub.vscode-github-actions
     - mattpocock.ts-error-translator
     - bradlc.vscode-tailwindcss
+    - GraphQL.vscode-graphql

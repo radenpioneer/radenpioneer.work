@@ -3,7 +3,6 @@ import { glob } from 'astro/loaders'
 import { z } from 'astro:schema'
 
 const site = defineCollection({
-  type: 'content_layer',
   loader: glob({ pattern: '**/*.json', base: 'src/data/site' }),
   schema: ({ image }) =>
     z.object({
