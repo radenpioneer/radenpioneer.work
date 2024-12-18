@@ -2,6 +2,8 @@
 import BaseLayout, { type Props as BaseProps } from './base.astro'
 import Meta, { type Props as MetaProps } from '~/components/core/meta.astro'
 import Header from '~/components/header/header.astro'
+import '@fontsource-variable/red-hat-text'
+import '@fontsource-variable/jetbrains-mono'
 import './main.css'
 
 export interface Props extends BaseProps, MetaProps {}
@@ -11,7 +13,7 @@ const { title, description, class: className, ...props } = Astro.props
 
 <BaseLayout
   class:list={[
-    'from-brand-g/5 to-brand-b/5 flex min-h-svh flex-col bg-gradient-to-br *:w-full',
+    'from-brand-g/25 to-brand-b/25 flex min-h-svh flex-col bg-gradient-to-br *:w-full',
     className
   ]}
   {...props}

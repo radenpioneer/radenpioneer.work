@@ -3,4 +3,7 @@
 @theme {
   --color-brand-g: #81db03;
   --color-brand-b: #15a1bf;
+
+  --font-sans: 'Red Hat Text Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 }
