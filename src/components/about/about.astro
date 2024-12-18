@@ -11,7 +11,7 @@ const aboutText = await marked.parse(about?.data.text!)
 ---
 
 <section
-  class='mx-auto grid min-h-[calc(100svh-64px)] max-w-screen-lg grid-cols-1 gap-4 py-8 *:rounded-xl *:border *:border-white *:bg-white/30 *:p-4 *:shadow-sm *:backdrop-blur-md sm:grid-cols-3 sm:py-24'
+  class='*:border-brand-background *:bg-brand-background/30 mx-auto grid min-h-[calc(100svh-64px)] max-w-screen-lg grid-cols-1 gap-4 py-8 *:rounded-xl *:border *:p-4 *:shadow-sm *:backdrop-blur-md sm:grid-cols-3 sm:py-24'
 >
   <BioComponent bio={bio!}>
     <Picture
