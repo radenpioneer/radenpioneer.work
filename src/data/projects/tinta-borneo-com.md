@@ -1,5 +1,6 @@
 ---
 title: TintaBorneo.com
+description: A local media based in Central Kalimantan.
 date: 2024-05-14
 status: completed
 madeFor: TintaBorneo.com/PT Multimedia Jagad Perkasa
@@ -16,4 +17,3 @@ tags:
       slug: alpine-js
 url: https://www.tintaborneo.com/
 ---
-![](~/assets/projects/tinta-borneo-com/tintaborneo_com.png)
