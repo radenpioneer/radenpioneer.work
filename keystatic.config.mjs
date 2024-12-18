@@ -1,5 +1,5 @@
 // @ts-check
-import { config, fields, singleton } from '@keystatic/core'
+import { config, fields, singleton, collection } from '@keystatic/core'
 
 export default config({
   storage: {
@@ -89,6 +89,90 @@ export default config({
           publicPath: '~/assets/bio',
           validation: {
             isRequired: true
+          }
+        })
+      }
+    })
+  },
+
+  collections: {
+    projects: collection({
+      label: 'Projects',
+      format: {
+        contentField: 'content'
+      },
+      path: 'src/data/projects/*',
+      slugField: 'title',
+      entryLayout: 'content',
+      schema: {
+        title: fields.slug({
+          name: {
+            label: 'Project Name',
+            validation: {
+              isRequired: true
+            }
+          },
+          slug: {
+            label: 'Permalink'
+          }
+        }),
+        description: fields.text({
+          label: 'Project Short Description',
+          multiline: true
+        }),
+        date: fields.date({
+          label: 'Date of Completion',
+          defaultValue: {
+            kind: 'today'
+          }
+        }),
+        status: fields.select({
+          label: 'Project Status',
+          options: [
+            { label: 'Completed', value: 'completed' },
+            { label: 'Rejected', value: 'rejected' },
+            { label: 'Archived', value: 'archived' },
+            { label: 'On Progress', value: 'on-progress' },
+            { label: 'Concept', value: 'concept' }
+          ],
+          defaultValue: 'concept'
+        }),
+        madeFor: fields.text({
+          label: 'Made for',
+          multiline: true
+        }),
+        image: fields.image({
+          label: 'Profile Image',
+          directory: 'src/assets/projects',
+          publicPath: '~/assets/projects'
+        }),
+        tags: fields.array(
+          fields.object({
+            tag: fields.slug({
+              name: {
+                label: 'Tag Name'
+              }
+            })
+          }),
+          {
+            label: 'Tags',
+            itemLabel: (i) => i.fields.tag.value.name
+          }
+        ),
+        url: fields.url({
+          label: 'Project URL'
+        }),
+        repo: fields.url({
+          label: 'Project Repository URL'
+        }),
+        content: fields.mdx({
+          label: 'Content',
+          extension: 'md',
+          options: {
+            image: {
+              directory: 'src/assets/projects',
+              publicPath: '~/assets/projects'
+            }
           }
         })
       }
