@@ -7,7 +7,7 @@ const site = await getEntry('site', 'site')
 ---
 
 <HeaderComponent client:idle>
-  <HeaderLogo>
+  <HeaderLogo site={site!}>
     <Picture
       src={site!.data.logo}
       alt={site!.data.title}
