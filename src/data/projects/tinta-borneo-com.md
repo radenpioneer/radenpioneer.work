@@ -16,4 +16,5 @@ tags:
       name: AlpineJS
       slug: alpine-js
 url: https://www.tintaborneo.com/
+featured: true
 ---

@@ -14,4 +14,5 @@ tags:
       slug: amp
 url: https://kotimbercahaya4.pages.dev/
 repo: https://github.com/sngrstudio/kotimbercahaya4
+featured: true
 ---

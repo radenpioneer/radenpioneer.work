@@ -165,6 +165,10 @@ export default config({
         repo: fields.url({
           label: 'Project Repository URL'
         }),
+        featured: fields.checkbox({
+          label: 'Feature this Project',
+          defaultValue: false
+        }),
         content: fields.mdx({
           label: 'Content',
           extension: 'md',

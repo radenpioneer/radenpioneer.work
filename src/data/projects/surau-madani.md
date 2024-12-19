@@ -14,4 +14,5 @@ tags:
       name: React
       slug: react
 url: https://www.suraumadani.com/
+featured: true
 ---

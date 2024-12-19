@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders'
 import { z } from 'astro:schema'
 
 const projects = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: 'src/data/projects' }),
+  loader: glob({ pattern: '**/*.md', base: 'src/data/projects' }),
   schema: ({ image }) =>
     z.object({
       title: z.string().max(64),
@@ -28,7 +28,8 @@ const projects = defineCollection({
         .array()
         .optional(),
       url: z.string().url().optional(),
-      repo: z.string().url().optional()
+      repo: z.string().url().optional(),
+      featured: z.boolean().optional()
     })
 })
 
