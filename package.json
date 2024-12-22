@@ -5,7 +5,7 @@
   "scripts": {
     "astro": "astro",
     "build": "conc bun:check && astro build",
-    "check": "conc \"astro check\" \"prettier --check .\"",
+    "check": "conc \"prettier --check .\" \"astro check\"",
     "deploy": "conc bun:build && wrangler pages deploy",
     "dev": "astro dev",
     "format": "prettier --write .",
@@ -19,7 +19,7 @@
     "@keystatic/astro": "^5.0.3",
     "@keystatic/core": "^0.5.42",
     "@tailwindcss/vite": "^4.0.0-beta.7",
-    "astro": "5.1.1",
+    "astro": "5.0.3",
     "marked": "^15.0.4",
     "react": "18",
     "react-dom": "18",
