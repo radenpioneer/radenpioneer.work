@@ -1,17 +1,13 @@
 ---
-
+import Layout from '~/layouts/layout.astro'
+import Main from '~/components/core/main.astro'
+import About from '~/components/home/about/about.astro'
+import Projects from '~/components/home/projects/projects.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>radenpioneer.work</title>
-	</head>
-	<body>
-		<h1>radenpioneer.work</h1>
-		<p>Under Construction</p>
-	</body>
-</html>
+<Layout>
+  <Main class='flex flex-col items-center justify-center pb-16'>
+    <About />
+    <Projects />
+  </Main>
+</Layout>

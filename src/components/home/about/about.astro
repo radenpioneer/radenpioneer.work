@@ -1,0 +1,33 @@
+---
+import BioComponent from './bio'
+import AboutComponent from './about'
+import Section from '~/components/common/section'
+import { Picture } from 'astro:assets'
+import { getEntry } from 'astro:content'
+import { marked } from 'marked'
+
+const bio = await getEntry('bio', 'bio')
+const about = await getEntry('about', 'README.md')
+const aboutText = await marked.parse(about?.data.text!)
+---
+
+<Section
+  className='*:border-brand-background *:bg-brand-background/30 grid min-h-[calc(100svh-64px)] grid-cols-1 gap-4 py-8 *:rounded-xl *:border *:p-4 *:shadow-sm *:backdrop-blur-md sm:py-24 md:grid-cols-3'
+  role='article'
+>
+  <BioComponent bio={bio!}>
+    <Picture
+      class='rounded-full'
+      src={bio?.data.image!}
+      alt=''
+      layout='fixed'
+      width={100}
+      height={100}
+      formats={['avif', 'webp']}
+      priority={true}
+    />
+  </BioComponent>
+  <AboutComponent title='about'>
+    <Fragment set:html={aboutText} />
+  </AboutComponent>
+</Section>

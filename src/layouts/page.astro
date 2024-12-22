@@ -1,0 +1,31 @@
+---
+import Layout, { type Props as LayoutProps } from './layout.astro'
+import Main from '~/components/core/main.astro'
+
+interface Props extends LayoutProps {}
+
+const { title, class: className, ...props } = Astro.props
+---
+
+<Layout title={title} class:list={[className]} {...props}>
+  <Main class='min-h-[calc(100svh-64px)]'>
+    <article class='mx-auto max-w-screen-lg pt-8'>
+      <hgroup>
+        <h1
+          class='text-center text-2xl font-bold sm:col-span-2 sm:text-4xl md:col-span-3'
+        >
+          {title}
+        </h1>
+        <slot name='header' />
+      </hgroup>
+
+      {/* main page content */}
+      <slot />
+    </article>
+  </Main>
+
+  {/* <head /> */}
+  <Fragment slot='head'>
+    <slot name='head' />
+  </Fragment>
+</Layout>
