@@ -24,6 +24,7 @@ const { title, description, class: className, ...props } = Astro.props
   {/* <head /> */}
   <Fragment slot='head'>
     <Meta title={title} description={description} />
+    <slot name='head' />
   </Fragment>
 </BaseLayout>
 
