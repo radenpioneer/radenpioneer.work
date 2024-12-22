@@ -21,7 +21,7 @@ const { title, description, class: className, ...props } = Astro.props
   {/* <body /> */}
   <Header />
   <slot />
-  <Footer server:defer />
+  <Footer />
 
   {/* <head /> */}
   <Fragment slot='head'>
