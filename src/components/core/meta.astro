@@ -18,4 +18,24 @@ const site = await getEntry('site', 'site')
 <link rel='canonical' href={Astro.url} />
 
 {/* icons */}
-<link rel='icon' type='image/svg+xml' href={site?.data.favicon} />
+<link
+  rel='icon'
+  type='image/svg+xml'
+  href={site?.data.favicon}
+  data-icon={site?.data.favicon}
+  data-icon-alt={site?.data.faviconAlt}
+/>
+
+{/* icon switcher script */}
+<script>
+  const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement
+  document.addEventListener('visibilitychange', () => {
+    const hidden = document.hidden
+    favicon.setAttribute(
+      'href',
+      hidden
+        ? (favicon.dataset.iconAlt as string)
+        : (favicon.dataset.icon as string)
+    )
+  })
+</script>

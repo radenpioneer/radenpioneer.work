@@ -46,6 +46,14 @@ export default config({
           validation: {
             isRequired: true
           }
+        }),
+        faviconAlt: fields.image({
+          label: 'Alternative Favicon',
+          directory: 'public',
+          publicPath: '',
+          validation: {
+            isRequired: true
+          }
         })
       }
     }),
