@@ -4,6 +4,7 @@ import cloudflare from '@astrojs/cloudflare'
 import react from '@astrojs/react'
 import keystatic from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
+import icons from 'unplugin-icons/vite'
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +16,7 @@ export default defineConfig({
   }),
   integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })]
   },
   experimental: {
     responsiveImages: true
