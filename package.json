@@ -5,20 +5,42 @@
   "scripts": {
     "astro": "astro",
     "build": "conc bun:check && astro build",
-    "check": "conc \"astro check\"",
+    "check": "conc \"prettier --check .\" \"astro check\"",
     "deploy": "conc bun:build && wrangler pages deploy",
     "dev": "astro dev",
+    "format": "prettier --write .",
     "preview": "conc bun:build && wrangler pages dev"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.0.1",
-    "astro": "^5.0.3"
+    "@astrojs/cloudflare": "12.1.0",
+    "@astrojs/react": "4.1.2",
+    "@fontsource-variable/jetbrains-mono": "^5.1.1",
+    "@fontsource-variable/red-hat-text": "^5.1.0",
+    "@keystatic/astro": "^5.0.3",
+    "@keystatic/core": "^0.5.42",
+    "@tailwindcss/vite": "^4.0.0-beta.7",
+    "astro": "5.0.3",
+    "marked": "^15.0.4",
+    "react": "18",
+    "react-dom": "18",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss": "^4.0.0-beta.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@cloudflare/workers-types": "^4.20241205.0",
+    "@iconify/json": "^2.2.287",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@types/react": "^18.3.14",
+    "@types/react-dom": "^18.3.3",
     "concurrently": "^9.1.0",
+    "prettier": "^3.4.2",
+    "prettier-config-standard": "^7.0.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
+    "unplugin-icons": "^0.22.0",
     "wrangler": "^3.93.0"
   }
 }
