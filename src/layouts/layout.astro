@@ -2,6 +2,7 @@
 import BaseLayout, { type Props as BaseProps } from './base.astro'
 import Meta, { type Props as MetaProps } from '~/components/core/meta.astro'
 import Header from '~/components/header/header.astro'
+import Footer from '~/components/footer/footer.astro'
 import '@fontsource-variable/red-hat-text'
 import '@fontsource-variable/jetbrains-mono'
 
@@ -20,6 +21,7 @@ const { title, description, class: className, ...props } = Astro.props
   {/* <body /> */}
   <Header />
   <slot />
+  <Footer server:defer />
 
   {/* <head /> */}
   <Fragment slot='head'>

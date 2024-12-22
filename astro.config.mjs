@@ -14,6 +14,9 @@ export default defineConfig({
       enabled: true
     }
   }),
+  image: {
+    domains: ['astro.badg.es']
+  },
   integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
     plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })]

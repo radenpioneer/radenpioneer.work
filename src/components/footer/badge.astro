@@ -1,0 +1,16 @@
+---
+import { Picture } from 'astro:assets'
+
+const src = 'https://astro.badg.es/v2/built-with-astro/tiny.svg'
+---
+
+<a href='https://astro.build' target='_blank' rel='noreferrer'>
+  <Picture
+    src={src}
+    alt='Built with Astro'
+    width='120'
+    height='20'
+    layout='fixed'
+    formats={['avif', 'webp']}
+  />
+</a>
