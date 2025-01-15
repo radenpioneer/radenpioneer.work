@@ -20,6 +20,7 @@ export default defineConfig({
   },
   integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })]
   },
   experimental: {
