@@ -6,6 +6,6 @@ import { getCollection } from 'astro:content'
 const projects = await getCollection('projects')
 ---
 
-<Section className='pt-4'>
+<Section className='overflow-x-scroll pt-4'>
   <ProjectsComponent projects={projects} client:load />
 </Section>
