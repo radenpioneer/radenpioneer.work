@@ -8,6 +8,6 @@ import Projects from '~/components/home/projects/projects.astro'
 <Layout>
   <Main class='flex flex-col items-center justify-center pb-16'>
     <About />
-    <Projects />
+    <Projects server:defer />
   </Main>
 </Layout>
