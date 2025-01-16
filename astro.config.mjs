@@ -10,7 +10,7 @@ import icons from 'unplugin-icons/vite'
 export default defineConfig({
   site: 'https://www.radenpioneer.work',
   adapter: cloudflare({
-    imageService: 'compile',
+    imageService: 'cloudflare',
     platformProxy: {
       enabled: true
     }
