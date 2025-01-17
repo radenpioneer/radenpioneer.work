@@ -12,7 +12,6 @@ tasks:
   init-000:
     command: |
       export KEYSTATIC=true
-      bun upgrade
       bun install --frozen-lockfile
     description: init task migrated from .gitpod.yml
     name: 'Task 0: init'

@@ -3,10 +3,12 @@ import type { CollectionEntry } from 'astro:content'
 import {
   type SortingFn,
   type SortingState,
+  type ColumnFiltersState,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
+  getFilteredRowModel,
   useReactTable
 } from '@tanstack/react-table'
 import { twMerge } from 'tailwind-merge'
@@ -41,69 +43,86 @@ const columns = [
   columnHelper.accessor('data.date', {
     id: 'year',
     header: 'Year',
-    cell: (p) => p.getValue()?.getFullYear(),
-    sortUndefined: 'last'
+    cell: (props) => props.getValue()?.getFullYear(),
+    sortUndefined: 'last',
+    enableColumnFilter: false
   }),
   // title
   columnHelper.accessor('data.title', {
     id: 'title',
     header: 'Project Title',
-    cell: (p) => <span className='font-bold'>{p.getValue()}</span>
+    cell: (props) => <span className='font-bold'>{props.getValue()}</span>,
+    enableColumnFilter: false
   }),
   // status
   columnHelper.accessor('data.status', {
     id: 'status',
     header: 'Status',
-    cell: (p) => (
+    cell: (props) => (
       <span
         className='w-full text-center font-mono text-sm uppercase'
         role='button'
       >
-        {p.getValue()}
+        {props.getValue()}
       </span>
     ),
-    sortingFn: sortStatusFn
+    sortingFn: sortStatusFn,
+    enableColumnFilter: false
   }),
   // made for?
   columnHelper.accessor('data.madeFor', {
     header: 'Made for',
-    cell: (p) => p.getValue(),
-    enableSorting: false
+    cell: (props) => props.getValue(),
+    enableSorting: false,
+    enableColumnFilter: false
   }),
   // built with?
   columnHelper.accessor('data.tags', {
+    id: 'builtWith',
     header: 'Built with',
-    cell: (p) => (
+    cell: (props) => (
       <div className='*:border-brand-primary/75 *:bg-brand-primary/15 *:hover:bg-brand-primary/25 flex flex-wrap gap-1 *:rounded-full *:border *:px-2 *:py-0.5 *:text-sm *:transition-colors'>
-        {p.getValue()?.map(({ tag }, _i) => (
-          <span role='button' key={_i}>
+        {props.getValue()?.map(({ tag }, _i) => (
+          <span
+            className='cursor-pointer'
+            onClick={() =>
+              props.column.setFilterValue([
+                { id: props.column.id, value: [tag] }
+              ])
+            }
+            role='button'
+            key={_i}
+          >
             {tag.name}
           </span>
         ))}
       </div>
     ),
-    enableSorting: false
+    enableSorting: false,
+    filterFn: 'auto'
   }),
   // urls
   columnHelper.display({
     id: 'urls',
     header: 'URLs',
-    cell: (p) => (
+    cell: (props) => (
       <div className='*:border-brand-primary/75 *:bg-brand-primary/15 *:hover:bg-brand-primary/25 flex flex-wrap gap-1 *:flex *:items-center *:gap-0.5 *:rounded-full *:border *:px-2 *:py-0.5 *:text-sm *:transition-colors'>
-        {p.row.original.data.url && (
-          <a href={p.row.original.data.url} target='_blank'>
+        {props.row.original.data.url && (
+          <a href={props.row.original.data.url} target='_blank'>
             <URLIcon />
             <span>URL</span>
           </a>
         )}
-        {p.row.original.data.repo && (
-          <a href={p.row.original.data.repo} target='_blank'>
+        {props.row.original.data.repo && (
+          <a href={props.row.original.data.repo} target='_blank'>
             <GithubIcon />
             <span>Repository</span>
           </a>
         )}
       </div>
-    )
+    ),
+    enableSorting: false,
+    enableColumnFilter: false
   })
 ]
 
@@ -112,14 +131,17 @@ const Projects: FC<ProjectsInput> = ({ projects }) => {
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'year', desc: true }
   ])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
     enableSortingRemoval: false,
-    state: { sorting }
+    state: { sorting, columnFilters }
   })
 
   return (
@@ -149,6 +171,14 @@ const Projects: FC<ProjectsInput> = ({ projects }) => {
                       asc: <SortAscIcon className='text-sm' />,
                       desc: <SortDescIcon className='text-sm' />
                     }[header.column.getIsSorted() as string] ?? null}
+                    {header.column.getCanFilter() && (
+                      <span
+                        role='button'
+                        onClick={() => table.resetColumnFilters()}
+                      >
+                        x
+                      </span>
+                    )}
                   </div>
                 )}
               </th>
