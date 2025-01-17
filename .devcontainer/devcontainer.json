@@ -13,21 +13,28 @@
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro: Port 4321 for Astro",
+      "onAutoForward": "openBrowser",
+      "elevateIfNeeded": true
+    }
+  },
 
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
         "astro-build.astro-vscode",
+        "GitHub.vscode-github-actions",
+        "mattpocock.ts-error-translator",
         "bradlc.vscode-tailwindcss",
-        "github.vscode-github-actions",
-        "tamasfe.even-better-toml"
+        "GraphQL.vscode-graphql"
       ]
     }
-  },
+  }
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
-
-  "postCreateCommand": "bun i --frozen-lockfile"
 }
