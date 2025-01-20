@@ -7,7 +7,7 @@ const bio = defineCollection({
     const res = await fetch('https://api.github.com/graphql', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${import.meta.env.GH_API_TOKEN}`
+        Authorization: `Bearer ${process.env.GH_API_TOKEN}`
       },
       body: JSON.stringify({
         query: gql`
