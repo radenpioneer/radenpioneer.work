@@ -3,12 +3,10 @@ import type { CollectionEntry } from 'astro:content'
 import {
   type SortingFn,
   type SortingState,
-  type ColumnFiltersState,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
-  getFilteredRowModel,
   useReactTable
 } from '@tanstack/react-table'
 import { twMerge } from 'tailwind-merge'
@@ -44,15 +42,13 @@ const columns = [
     id: 'year',
     header: 'Year',
     cell: (props) => props.getValue()?.getFullYear(),
-    sortUndefined: 'last',
-    enableColumnFilter: false
+    sortUndefined: 'last'
   }),
   // title
   columnHelper.accessor('data.title', {
     id: 'title',
     header: 'Project Title',
-    cell: (props) => <span className='font-bold'>{props.getValue()}</span>,
-    enableColumnFilter: false
+    cell: (props) => <span className='font-bold'>{props.getValue()}</span>
   }),
   // status
   columnHelper.accessor('data.status', {
@@ -66,15 +62,13 @@ const columns = [
         {props.getValue()}
       </span>
     ),
-    sortingFn: sortStatusFn,
-    enableColumnFilter: false
+    sortingFn: sortStatusFn
   }),
   // made for?
   columnHelper.accessor('data.madeFor', {
     header: 'Made for',
     cell: (props) => props.getValue(),
-    enableSorting: false,
-    enableColumnFilter: false
+    enableSorting: false
   }),
   // built with?
   columnHelper.accessor('data.tags', {
@@ -98,8 +92,7 @@ const columns = [
         ))}
       </div>
     ),
-    enableSorting: false,
-    filterFn: 'auto'
+    enableSorting: false
   }),
   // urls
   columnHelper.display({
@@ -121,8 +114,7 @@ const columns = [
         )}
       </div>
     ),
-    enableSorting: false,
-    enableColumnFilter: false
+    enableSorting: false
   })
 ]
 
@@ -131,17 +123,14 @@ const Projects: FC<ProjectsInput> = ({ projects }) => {
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'year', desc: true }
   ])
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
     enableSortingRemoval: false,
-    state: { sorting, columnFilters }
+    state: { sorting }
   })
 
   return (
@@ -171,14 +160,6 @@ const Projects: FC<ProjectsInput> = ({ projects }) => {
                       asc: <SortAscIcon className='text-sm' />,
                       desc: <SortDescIcon className='text-sm' />
                     }[header.column.getIsSorted() as string] ?? null}
-                    {header.column.getCanFilter() && (
-                      <span
-                        role='button'
-                        onClick={() => table.resetColumnFilters()}
-                      >
-                        x
-                      </span>
-                    )}
                   </div>
                 )}
               </th>
