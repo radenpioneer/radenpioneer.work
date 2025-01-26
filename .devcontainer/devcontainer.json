@@ -3,24 +3,15 @@
 {
   "name": "radenpioneer.work",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/shyim/devcontainers-features/bun:0": {}
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
-  "forwardPorts": [4321],
-  "portsAttributes": {
-    "4321": {
-      "label": "Astro: Port 4321 for Astro",
-      "onAutoForward": "openBrowser",
-      "elevateIfNeeded": true
-    }
-  },
 
   // Configure tool-specific properties.
   "customizations": {
