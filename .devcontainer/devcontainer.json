@@ -3,11 +3,21 @@
 {
   "name": "radenpioneer.work",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    "ghcr.io/shyim/devcontainers-features/bun:0": {}
+    "ghcr.io/shyim/devcontainers-features/bun:0": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "installOhMyZshConfig": true,
+      "upgradePackages": true,
+      "nonFreePackages": true,
+      "username": "vscode",
+      "userUid": "automatic",
+      "userGid": "automatic"
+    }
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -20,8 +30,7 @@
         "astro-build.astro-vscode",
         "GitHub.vscode-github-actions",
         "mattpocock.ts-error-translator",
-        "bradlc.vscode-tailwindcss",
-        "GraphQL.vscode-graphql"
+        "bradlc.vscode-tailwindcss"
       ]
     }
   }
