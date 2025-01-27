@@ -30,7 +30,8 @@
         "astro-build.astro-vscode",
         "GitHub.vscode-github-actions",
         "mattpocock.ts-error-translator",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "tamasfe.even-better-toml"
       ]
     }
   }
