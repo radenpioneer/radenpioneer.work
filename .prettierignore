@@ -30,3 +30,6 @@ pnpm-debug.log*
 # content collections
 src/data
 src/assets
+
+# lockfiles
+bun.lock
