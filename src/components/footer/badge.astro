@@ -1,12 +1,12 @@
 ---
 import { Picture } from 'astro:assets'
 
-const src = 'https://astro.badg.es/v2/built-with-astro/tiny.svg'
+const BADGE_SRC = 'https://astro.badg.es/v2/built-with-astro/tiny.svg'
 ---
 
-<a href='https://astro.build' target='_blank' rel='noreferrer'>
+<a href='/astro' target='_blank' rel='noreferrer'>
   <Picture
-    src={src}
+    src={BADGE_SRC}
     alt='Built with Astro'
     width='120'
     height='20'
