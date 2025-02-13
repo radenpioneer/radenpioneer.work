@@ -10,17 +10,18 @@ import icons from 'unplugin-icons/vite'
 export default defineConfig({
   site: 'https://www.radenpioneer.work',
   adapter: cloudflare({
-    imageService: 'cloudflare',
     platformProxy: {
       enabled: true
     }
   }),
+  integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
+  redirects: {
+    '/astro': 'https://astro.build'
+  },
   image: {
     domains: ['astro.badg.es']
   },
-  integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
-    // @ts-ignore
     plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })]
   },
   experimental: {
