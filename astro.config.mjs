@@ -21,7 +21,14 @@ export default defineConfig({
   integrations: [react(), ...(process.env.KEYSTATIC ? [keystatic()] : [])],
   vite: {
     // @ts-ignore
-    plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })]
+    plugins: [tailwindcss(), icons({ compiler: 'jsx', jsx: 'react' })],
+
+    // workaround for deployment bug, see https://github.com/withastro/astro/issues/12824
+    resolve: {
+      alias: import.meta.env.PROD && {
+        'react-dom/server': 'react-dom/server.edge'
+      }
+    }
   },
   experimental: {
     responsiveImages: true
