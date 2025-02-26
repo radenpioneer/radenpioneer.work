@@ -29,9 +29,9 @@ export default defineConfig({
       // Without this, MessageChannel from node:worker_threads needs to be polyfilled.
       // @ts-ignore
       alias: import.meta.env.PROD && {
-        'react-dom/server': 'react-dom/server.edge',
-      },
-    },
+        'react-dom/server': 'react-dom/server.edge'
+      }
+    }
   },
   experimental: {
     responsiveImages: true
