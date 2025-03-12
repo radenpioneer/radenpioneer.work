@@ -31,9 +31,9 @@ jobs:
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
         with:
           path: './node_modules/.astro'
-          key: astro-cache-${{ hashFiles('bun.lockb') }}-${{ hashFiles('src/**') }}
+          key: astro-cache-${{ hashFiles('bun.lock') }}-${{ hashFiles('src/**') }}
           restore-keys: |
-            astro-cache-${{ hashFiles('bun.lockb') }}-
+            astro-cache-${{ hashFiles('bun.lock') }}-
             astro-cache-
 
       - name: Build your site
