@@ -5,10 +5,16 @@ import './global.css'
 
 export interface Props extends BaseLayoutProps, MetaProps {}
 
-const { title, description, canonical, ...props } = Astro.props
+const {
+  title,
+  description,
+  canonical,
+  class: className,
+  ...props
+} = Astro.props
 ---
 
-<BaseLayout {...props}>
+<BaseLayout {...props} class:list={['', className]}>
   {/* <body> */}
   <slot />
 

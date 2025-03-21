@@ -26,11 +26,18 @@
       "extensions": [
         "astro-build.astro-vscode",
         "esbenp.prettier-vscode",
-        "GitHub.vscode-github-actions"
+        "GitHub.vscode-github-actions",
+        "bradlc.vscode-tailwindcss"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "tailwindCSS.experimental.classRegex": [
+          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ],
+        "files.associations": {
+          "wrangler.json": "jsonc"
+        }
       }
     }
   },

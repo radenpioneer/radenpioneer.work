@@ -3,10 +3,14 @@
 import { config, fields, singleton } from '@keystatic/core'
 
 export default config({
-  storage: {
-    kind: 'github',
-    repo: 'radenpioneer/radenpioneer.work'
-  },
+  storage: import.meta.env.DEV
+    ? {
+        kind: 'local'
+      }
+    : {
+        kind: 'github',
+        repo: 'radenpioneer/radenpioneer.work'
+      },
 
   singletons: {
     site: singleton({
@@ -39,6 +43,23 @@ export default config({
           publicPath: '',
           validation: {
             isRequired: true
+          }
+        })
+      }
+    }),
+
+    home: singleton({
+      label: 'Homepage Settings',
+      path: 'src/content/home/home',
+      format: 'json',
+      schema: {
+        title: fields.text({
+          label: 'Home Title',
+          validation: {
+            isRequired: true,
+            length: {
+              max: 160
+            }
           }
         })
       }

@@ -1,13 +1,17 @@
 ---
 import Layout from '~/layouts/layout.astro'
+import Main from '~/components/site/main.astro'
+import Hero from '~/components/home/hero'
+import { getEntry } from 'astro:content'
+
+const home = await getEntry('home', 'home')
+if (!home) {
+  return Astro.redirect('/404')
+}
 ---
 
 <Layout>
-  <h1>Hello World!</h1>
-  <p>
-    This is Astro Base Template by <a href='/sngrcreative' target='_blank'>
-      SNGR Creative.
-    </a>
-  </p>
-  <a href='/about' role='button'>About</a>
+  <Main class='flex flex-col'>
+    <Hero title={home.data.title} client:load />
+  </Main>
 </Layout>

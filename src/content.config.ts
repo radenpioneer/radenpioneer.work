@@ -10,5 +10,12 @@ export const collections = {
       description: z.string(),
       favicon: z.string()
     })
+  }),
+
+  home: defineCollection({
+    loader: glob({ pattern: '**/*.json', base: 'src/content/home' }),
+    schema: z.object({
+      title: z.string()
+    })
   })
 }
