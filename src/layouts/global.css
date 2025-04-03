@@ -6,8 +6,8 @@
   --font-sans:
     'Geist Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  
+
   /* colors */
-  --color-theme-primary: #286892;
-  --color-theme-secondary: #AEF8FD;
+  --color-theme-primary: oklch(49.6% 0.093 241.15);
+  --color-theme-secondary: oklch(93.2% 0.073 201.3);
 }
