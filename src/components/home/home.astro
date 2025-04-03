@@ -1,0 +1,13 @@
+---
+import Hero, { type HeroProps } from './hero'
+
+interface Props extends HeroProps {}
+
+const { title } = Astro.props
+---
+
+<section
+  class='flex flex-col items-center justify-center select-none min-h-screen'
+>
+  <Hero title={title} client:load />
+</section>
