@@ -1,45 +1,26 @@
 ---
-import BaseLayout, { type Props as BaseProps } from './base.astro'
-import Meta, { type Props as MetaProps } from '~/components/core/meta.astro'
-import Header from '~/components/header/header.astro'
-import Footer from '~/components/footer/footer.astro'
-import '@fontsource-variable/red-hat-text'
-import '@fontsource-variable/jetbrains-mono'
+import BaseLayout, { type Props as BaseLayoutProps } from './base.astro'
+import Meta, { type Props as MetaProps } from './meta.astro'
+import './global.css'
 
-export interface Props extends BaseProps, MetaProps {}
+export interface Props extends BaseLayoutProps, MetaProps {}
 
-const { title, description, class: className, ...props } = Astro.props
+const {
+  title,
+  description,
+  canonical,
+  class: className,
+  ...props
+} = Astro.props
 ---
 
-<BaseLayout
-  class:list={[
-    'text-brand-text from-brand-primary/15 to-brand-secondary/15 flex min-h-svh flex-col bg-linear-to-tl/oklch *:w-full',
-    className
-  ]}
-  {...props}
->
-  {/* <body /> */}
-  <Header />
+<BaseLayout {...props} class:list={['', className]}>
+  {/* <body> */}
   <slot />
-  <Footer />
 
-  {/* <head /> */}
+  {/* <head> */}
   <Fragment slot='head'>
-    <Meta title={title} description={description} />
+    <Meta title={title} description={description} canonical={canonical} />
     <slot name='head' />
   </Fragment>
 </BaseLayout>
-
-<style is:global>
-  @import 'tailwindcss';
-
-  @theme {
-    --color-brand-primary: oklch(65.6% 0.114 217.93);
-    --color-brand-secondary: oklch(80.3% 0.226 132.91);
-    --color-brand-background: oklch(96.8% 0.009 222.06);
-    --color-brand-text: oklch(22.6% 0.054 242.87);
-
-    --font-sans: 'Red Hat Text Variable', ui-sans-serif, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
-  }
-</style>

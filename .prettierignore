@@ -6,13 +6,13 @@ dist/
 
 # dependencies
 node_modules/
+bun.lock
 
 # logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
 
 # environment variables
 .env
@@ -24,12 +24,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# wrangler
-.wrangler
-
-# content collections
-src/data
-src/assets
-
-# lockfiles
-bun.lock
+# content
+src/content

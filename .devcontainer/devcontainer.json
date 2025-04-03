@@ -3,40 +3,47 @@
 {
   "name": "radenpioneer.work",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    "ghcr.io/shyim/devcontainers-features/bun:0": {},
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "installOhMyZsh": true,
-      "installOhMyZshConfig": true,
-      "upgradePackages": true,
-      "nonFreePackages": true,
-      "username": "vscode",
-      "userUid": "automatic",
-      "userGid": "automatic"
-    }
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/shyim/devcontainers-features/bun:0": {}
   },
-  "runArgs": ["--env-file", ".devcontainer/.env"],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro's Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
 
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
         "astro-build.astro-vscode",
+        "esbenp.prettier-vscode",
         "GitHub.vscode-github-actions",
-        "mattpocock.ts-error-translator",
-        "bradlc.vscode-tailwindcss",
-        "tamasfe.even-better-toml"
-      ]
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "tailwindCSS.experimental.classRegex": [
+          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ],
+        "files.associations": {
+          "wrangler.json": "jsonc"
+        }
+      }
     }
-  }
+  },
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
+
+  "postCreateCommand": "bun install --frozen-lockfile && bunx astro sync"
 }
