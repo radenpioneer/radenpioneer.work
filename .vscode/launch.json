@@ -6,6 +6,13 @@
       "name": "Dev Server",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "command": "bun run preview --ip=0.0.0.0 --port=4321",
+      "preLaunchTask": "npm: build",
+      "name": "Preview Server",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }

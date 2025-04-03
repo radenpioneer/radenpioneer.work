@@ -18,7 +18,7 @@ const Hero: FC<HeroProps> = ({ title }) => {
 
   const splitTitle = (text: string) =>
     text.split('').map((char, index) => (
-      <span key={index} className='inline-block'>
+      <span key={index} className='inline-block opacity-0'>
         {char === ' ' ? '\u00A0' : char}
       </span>
     ))
