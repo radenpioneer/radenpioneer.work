@@ -1,5 +1,6 @@
 {
   "title": "radenpioneer.work",
   "description": "Welcome to work gallery of R Ilham Sastronegoro.",
-  "favicon": "/favicon.svg"
+  "favicon": "/favicon.svg",
+  "faviconDark": "/faviconDark.svg"
 }
