@@ -14,7 +14,10 @@ const {
 } = Astro.props
 ---
 
-<BaseLayout {...props} class:list={['', className]}>
+<BaseLayout
+  {...props}
+  class:list={['bg-theme-background text-theme-text', className]}
+>
   {/* <body> */}
   <slot />
 
