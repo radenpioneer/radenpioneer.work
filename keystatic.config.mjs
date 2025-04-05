@@ -1,6 +1,6 @@
 // @ts-check
 
-import { config, fields, singleton } from '@keystatic/core'
+import { config, fields, singleton, collection } from '@keystatic/core'
 import site from './src/content/site/site.json'
 import { createElement } from 'react'
 
@@ -73,6 +73,62 @@ export default config({
     })
   },
 
+  collections: {
+    projects: collection({
+      label: 'Projects',
+      slugField: 'title',
+      path: 'src/content/projects/**',
+      format: 'json',
+      schema: {
+        title: fields.slug({
+          name: {
+            label: 'Project Name',
+            validation: {
+              isRequired: true,
+              length: {
+                max: 64
+              }
+            }
+          }
+        }),
+        description: fields.text({
+          label: 'Project Description',
+          multiline: true,
+          validation: {
+            length: {
+              max: 160
+            }
+          }
+        }),
+        logo: fields.image({
+          label: 'Project Logo',
+          directory: 'src/assets/projects',
+          publicPath: '~/assets/projects'
+        }),
+        screenshots: fields.array(
+          fields.image({
+            label: 'Image name',
+            description: 'Image description',
+            directory: 'src/assets/projects',
+            publicPath: '~/assets/projects'
+          }),
+          {
+            label: 'Screenshots'
+          }
+        ),
+        urls: fields.array(
+          fields.url({
+            label: 'URL'
+          }),
+          {
+            label: 'Project URLs',
+            itemLabel: (props) => props.value || ''
+          }
+        )
+      }
+    })
+  },
+
   ui: {
     brand: {
       name: site.title,
@@ -86,7 +142,8 @@ export default config({
     },
 
     navigation: {
-      Settings: ['site', 'home']
+      content: ['projects'],
+      settings: ['site', 'home']
     }
   }
 })

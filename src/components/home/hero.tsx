@@ -44,7 +44,7 @@ const Hero: FC<HeroProps> = ({ title }) => {
 
   return (
     <div className='max-w-screen-lg mx-auto px-4' ref={scope}>
-      <h1 className='text-6xl md:text-8xl font-black uppercase text-center text-theme-primary'>
+      <h1 className='text-6xl md:text-8xl font-black uppercase text-center text-theme-primary text-shadow-lg'>
         {splitTitle(title)}
       </h1>
     </div>
