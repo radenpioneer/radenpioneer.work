@@ -17,5 +17,17 @@ export const collections = {
     schema: z.object({
       title: z.string()
     })
+  }),
+
+  projects: defineCollection({
+    loader: glob({ pattern: '**/*.json', base: 'src/content/projects' }),
+    schema: ({ image }) =>
+      z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        logo: image().optional(),
+        screenshots: image().array().optional(),
+        urls: z.string().url().array().optional()
+      })
   })
 }
