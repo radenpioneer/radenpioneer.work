@@ -1,11 +1,11 @@
 import { type FC, useEffect } from 'react'
 import { useAnimate, usePresence, stagger } from 'motion/react'
 
-export interface HeroProps {
+export interface ProjectsProps {
   title: string
 }
 
-const Hero: FC<HeroProps> = ({ title }) => {
+const Projects: FC<ProjectsProps> = ({ title }) => {
   const [scope, animate] = useAnimate()
   const [isPresent, safeToRemove] = usePresence()
 
@@ -51,4 +51,4 @@ const Hero: FC<HeroProps> = ({ title }) => {
   )
 }
 
-export default Hero
+export default Projects

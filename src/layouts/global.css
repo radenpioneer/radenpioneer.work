@@ -10,4 +10,6 @@
   /* colors */
   --color-theme-primary: oklch(49.6% 0.093 241.15);
   --color-theme-secondary: oklch(93.2% 0.073 201.3);
+  --color-theme-background: oklch(95.4% 0.008 253.85);
+  --color-theme-text: oklch(21.2% 0.008 248.18);
 }

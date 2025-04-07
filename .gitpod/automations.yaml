@@ -4,4 +4,4 @@ services:
     commands:
       start: bun run dev --host=0.0.0.0
     triggeredBy:
-      - postDevcontainerStart
+      - postEnvironmentStart
