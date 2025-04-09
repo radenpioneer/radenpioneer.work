@@ -30,7 +30,7 @@
     "@astrojs/check": "0.9.4",
     "@cloudflare/workers-types": "4.20250409.0",
     "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
+    "@types/react-dom": "19.1.2",
     "concurrently": "9.1.2",
     "prettier": "3.5.3",
     "prettier-config-standard": "7.0.0",
