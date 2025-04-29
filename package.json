@@ -14,13 +14,13 @@
     "preview": "astro build && wrangler pages dev"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12.5.0",
-    "@astrojs/react": "4.2.4",
+    "@astrojs/cloudflare": "12.5.1",
+    "@astrojs/react": "4.2.5",
     "@fontsource-variable/geist": "5.2.5",
     "@keystatic/astro": "5.0.6",
     "@keystatic/core": "0.5.46",
     "@tailwindcss/vite": "4.1.4",
-    "astro": "5.7.4",
+    "astro": "5.7.8",
     "clsx": "2.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
