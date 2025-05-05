@@ -6,7 +6,7 @@
       "dependencies": {
         "@astrojs/cloudflare": "12.5.2",
         "@astrojs/react": "4.2.7",
-        "@fontsource-variable/geist": "5.2.5",
+        "@fontsource-variable/geist": "5.2.6",
         "@keystatic/astro": "5.0.6",
         "@keystatic/core": "0.5.46",
         "@tailwindcss/vite": "4.1.4",
@@ -215,7 +215,7 @@
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.9", "", {}, "sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg=="],
 
-    "@fontsource-variable/geist": ["@fontsource-variable/geist@5.2.5", "", {}, "sha512-773ht1maARKCDSxxmyc6cWiSRudk4GU+pW/0PHHnTEISprej9ARfGZVVhW04nmrk1Nlj888MLyuutTx1UnYy0g=="],
+    "@fontsource-variable/geist": ["@fontsource-variable/geist@5.2.6", "", {}, "sha512-Bt9pdD55Fojq4h9yFKQAzh5+Xj4tKFpwbcDzK6t5PPSH2GrjPoPqm6N8y+tK6vzwKZ9hHyaOz/tAbO9cQd9UFQ=="],
 
     "@formatjs/ecma402-abstract": ["@formatjs/ecma402-abstract@2.3.3", "", { "dependencies": { "@formatjs/fast-memoize": "2.2.6", "@formatjs/intl-localematcher": "0.6.0", "decimal.js": "10", "tslib": "2" } }, "sha512-pJT1OkhplSmvvr6i3CWTPvC/FGC06MbN5TNBfRO6Ox62AEz90eMq+dVvtX9Bl3jxCEkS0tATzDarRZuOLw7oFg=="],
 
