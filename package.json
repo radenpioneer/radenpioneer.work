@@ -18,9 +18,9 @@
     "@astrojs/react": "4.3.0",
     "@fontsource-variable/geist": "5.2.6",
     "@keystatic/astro": "5.0.6",
-    "@keystatic/core": "0.5.47",
+    "@keystatic/core": "0.5.48",
     "@tailwindcss/vite": "4.1.11",
-    "astro": "5.11.0",
+    "astro": "5.12.3",
     "clsx": "2.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@cloudflare/workers-types": "4.20250712.0",
+    "@cloudflare/workers-types": "4.20250726.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "concurrently": "9.2.0",
@@ -36,6 +36,6 @@
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-astro": "0.14.1",
     "typescript": "5.8.3",
-    "wrangler": "4.24.3"
+    "wrangler": "4.26.0"
   }
 }
