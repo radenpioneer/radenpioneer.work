@@ -14,13 +14,13 @@
     "preview": "astro build && wrangler pages dev"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12.6.8",
-    "@astrojs/react": "4.3.1",
+    "@astrojs/cloudflare": "12.6.9",
+    "@astrojs/react": "4.4.0",
     "@fontsource-variable/geist": "5.2.8",
     "@keystatic/astro": "5.0.6",
     "@keystatic/core": "0.5.48",
     "@tailwindcss/vite": "4.1.13",
-    "astro": "5.13.9",
+    "astro": "5.14.1",
     "clsx": "2.1.1",
     "react": "19.1.1",
     "react-dom": "19.1.1",
@@ -28,14 +28,14 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@cloudflare/workers-types": "4.20250922.0",
-    "@types/react": "19.1.13",
+    "@cloudflare/workers-types": "4.20250927.0",
+    "@types/react": "19.1.15",
     "@types/react-dom": "19.1.9",
     "concurrently": "9.2.1",
     "prettier": "3.6.2",
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-astro": "0.14.1",
     "typescript": "5.9.2",
-    "wrangler": "4.38.0"
+    "wrangler": "4.40.2"
   }
 }
