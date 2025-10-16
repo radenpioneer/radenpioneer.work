@@ -1,26 +1,18 @@
 ---
-import BaseLayout, { type Props as BaseLayoutProps } from './base.astro'
+import BaseLayout, { type Props as BLProps } from './base.astro'
 import Meta, { type Props as MetaProps } from './meta.astro'
-import './global.css'
 
-export interface Props extends BaseLayoutProps, MetaProps {}
-
-const {
-  title,
-  description,
-  canonical,
-  class: className,
-  ...props
-} = Astro.props
+export interface Props extends BLProps, MetaProps {}
+const { title, description, hide, class: className, ...props } = Astro.props
 ---
 
-<BaseLayout {...props} class:list={['', className]}>
-  {/* <body> */}
+<BaseLayout class:list={[className]} {...props}>
+  {/* <body/> */}
   <slot />
 
-  {/* <head> */}
+  {/* <head/> */}
   <Fragment slot='head'>
-    <Meta title={title} description={description} canonical={canonical} />
+    <Meta {...{ title, description, hide }} />
     <slot name='head' />
   </Fragment>
 </BaseLayout>

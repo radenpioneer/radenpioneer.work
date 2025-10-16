@@ -1,49 +1,18 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+// The Dev Container format allows you to configure your environment. At the heart of it
+// is a Docker image or Dockerfile which controls the tools available in your environment.
+//
+// See https://aka.ms/devcontainer.json for more information.
 {
-  "name": "radenpioneer.work",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "name": "Gitpod",
   "image": "mcr.microsoft.com/devcontainers/base:bookworm",
-
-  // Features to add to the dev container. More info: https://containers.dev/features.
+  // Features add additional features to your environment. See https://containers.dev/features
+  // Beware: features are not supported on all platforms and may have unintended side-effects.
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/shyim/devcontainers-features/bun:0": {}
   },
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [4321],
-  "portsAttributes": {
-    "4321": {
-      "label": "Astro's Dev Server",
-      "onAutoForward": "notify"
-    }
-  },
-
-  // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": [
-        "astro-build.astro-vscode",
-        "esbenp.prettier-vscode",
-        "GitHub.vscode-github-actions",
-        "bradlc.vscode-tailwindcss"
-      ],
-      "settings": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "tailwindCSS.experimental.classRegex": [
-          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-        ],
-        "files.associations": {
-          "wrangler.json": "jsonc"
-        }
-      }
+      "extensions": ["astro-build.astro-vscode", "GitHub.vscode-github-actions"]
     }
-  },
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
-
-  "postCreateCommand": "bun install --frozen-lockfile && bunx astro sync"
+  }
 }

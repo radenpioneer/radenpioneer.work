@@ -5,7 +5,6 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -38,13 +37,20 @@ jobs:
 
       - name: Build your site
         run: bun run build
-        env:
-          GH_API_TOKEN: ${{ github.token }}
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages (Preview)
+        if: github.event_name == 'pull_request'
         uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           packageManager: bun
-          command: pages deploy dist --project-name=radenpioneer-work
+          command: deploy --env preview
+
+      - name: Deploy to Cloudflare Pages (Production)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          packageManager: bun
