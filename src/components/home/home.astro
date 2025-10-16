@@ -1,9 +1,0 @@
----
-import HomeReact, { type HomeProps } from './home'
-
-interface Props extends HomeProps {}
-
-const { title } = Astro.props
----
-
-<HomeReact title={title} client:load />

@@ -2,15 +2,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "bun run dev --host=0.0.0.0",
-      "name": "Dev Server",
-      "request": "launch",
-      "type": "node-terminal"
-    },
-    {
-      "command": "bun run preview --ip=0.0.0.0 --port=4321",
-      "preLaunchTask": "npm: build",
-      "name": "Preview Server",
+      "command": "./node_modules/.bin/astro dev",
+      "name": "Development server",
       "request": "launch",
       "type": "node-terminal"
     }

@@ -1,17 +1,7 @@
 ---
 import Layout from '~/layouts/layout.astro'
-import Main from '~/components/site/main.astro'
-import Home from '~/components/home/home.astro'
-import { getEntry } from 'astro:content'
-
-const home = await getEntry('home', 'home')
-if (!home) {
-  return Astro.redirect('/404')
-}
 ---
 
 <Layout>
-  <Main class='flex flex-col'>
-    <Home title={home.data.title} />
-  </Main>
+  <h1>Astro</h1>
 </Layout>
